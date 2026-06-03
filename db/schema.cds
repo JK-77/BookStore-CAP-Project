@@ -8,7 +8,11 @@ namespace db;
 entity Books : cuid, managed {
     title  : String;
     author : Association to Authors;
-    chapters : Association to many Chapters
+    genre  : String;
+    publishedAt : Date;
+    pageCount : Integer;
+    price : Decimal(10,2);
+    chapters : Composition of many Chapters
                 on chapters.book = $self;
 }
 
